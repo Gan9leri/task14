@@ -1,52 +1,58 @@
 package tests;
-
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import pages.WildberriesPage;
 import org.junit.jupiter.api.Test;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byTagAndText;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverConditions.currentFrameUrl;
 
 
 public class WildberriesTests extends TestBase{
+    WildberriesPage steps = new WildberriesPage();
 
-
+    @DisplayName("Тест перехода на страницу продавцов")
+    @Tag("sellerTest")
     @Test
-    void searchLineTest(){
-        open("");
-        $("#searchInput").setValue("ноутбук").pressEnter();
-        $(".searching-results__title").shouldHave(text("ноутбук"));
+    void sellerPageTest(){
+        steps.openPage()
+                .sellerPage()
+                .CheckNewInsetUrl("https://seller.wildberries.ru/about-portal/ru/");
     }
 
+    @DisplayName("Тест перехода на страницу трудоустройства")
+    @Tag("workPageTest")
     @Test
-    void burgerLineTest(){
-        open("");
-        $(".nav-element__burger-line").click();
-        $(".menu-burger__main-list-link--629").click();
-        $(byTagAndText("a", "Аксессуары для обуви")).click();
-        $(".catalog-title").shouldHave(text("Аксессуары для обуви"));
-
+    void workPageTest() {
+        steps.openPage()
+                .workPage()
+                .checkUrl("https://www.wildberries.ru/services/trudoustroystvo");
     }
 
-    @Test
-    void sellerTest(){
-        open("");
-        $(byTagAndText("a", "Продавайте на Wildberries")).click();
-        webdriver().driver().switchTo().window(1);
-        webdriver().shouldHave(currentFrameUrl("https://seller.wildberries.ru/about-portal/ru/"));
-    }
-
+    @DisplayName("Тест перехода в корзину и обратно")
+    @Tag("basketTest")
     @Test
     void basketTest(){
-        open("");
-        $(".j-item-basket").click();
-        $(byTagAndText("a", "Перейти на главную")).click();
-        webdriver().shouldHave(currentFrameUrl("https://www.wildberries.ru/"));
+        steps.openPage()
+                .goToBasket()
+                .goToMainPage()
+                .checkUrl("https://www.wildberries.ru/");
+
     }
 
+    @DisplayName("Тест перехода к доставке")
+    @Tag("addresPageTest")
     @Test
-    void addresTest(){
-        open("");
-        $(".navbar-pc__icon--address").click();
-        $(".delivery-banner-title").shouldHave(text("Быстро доставим любой Ваш заказ по всей России"));
+    void addresPageTest(){
+        steps.openPage()
+                .goToAddres()
+                .testAddresPage("Быстро доставим любой Ваш заказ по всей России");
+    }
+
+    @DisplayName("Тест перехода на страницу авторизации")
+    @Tag("loginPageTest")
+    @Test
+    void loginPageTest(){
+        steps.openPage()
+                .loginButtonClick()
+                .checkLoginPage("Войти или создать профиль");
+
     }
 }
