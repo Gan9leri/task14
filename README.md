@@ -11,7 +11,7 @@
 - [Уведомления в Telegram](#-уведомления-в-telegram)
 - [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
 
-## :computer: Используемый стек
+##  :computer: Используемый стек
 
 <p align="center">
 <img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.svg">
@@ -30,7 +30,7 @@
 При прогоне тестов для запуска браузеров используется [Selenoid](https://aerokube.com/selenoid/).
 Для удаленного запуска реализована джоба в <code>Jenkins</code> с формированием Allure-отчета и отправкой результатов в <code>Telegram</code> при помощи бота.
 
-## :computer: Описание тестов:
+## :pushpin: Описание тестов:
 - ✓ *workPageTest() - Тест перехода на страницу трудоустройства*
 - ✓ *basketTest() - Тест перехода в корзину и обратно* 
 - ✓ *emptyBasketTest() - Тест пустоты корзины*
@@ -55,11 +55,13 @@ gradle clean test WildberriesTests -Dselenoid_url="selenoid.autotests.cloud/wd/h
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> Сборка в Jenkins
 
-Для запуска сборки необходимо перейти в раздел <code>Собрать с параметрами</code> и нажать кнопку <code>Собрать</code>.
+Для запуска сборки необходимо перейти в раздел <code>Build with parameters</code> и нажать кнопку <code>Build</code>.
+
+После выполнения сборки, в блоке <code>Build history</code> напротив номера сборки появятся значки <code>Allure Report</code> и <code>Allure TestOps</code>, при клике на которые откроется страница с сформированным html-отчетом и тестовой документацией соответственно.
+
 <p align="center">
-<img title="Jenkins Build" src="media/screens/jenkins.png">
+<img title="Jenkins Build" src="media/screen/build.PNG">
 </p>
-После выполнения сборки, в блоке <code>История сборок</code> напротив номера сборки появятся значки <code>Allure Report</code> и <code>Allure TestOps</code>, при клике на которые откроется страница с сформированным html-отчетом и тестовой документацией соответственно.
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logo/Allure_Report.svg"> Пример Allure-отчета
 ### Overview
