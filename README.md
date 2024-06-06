@@ -86,5 +86,8 @@ gradle clean test WildberriesTests -Dselenoid_url="selenoid.autotests.cloud/wd/h
 
 В отчетах Allure для каждого теста прикреплен не только скриншот, но и видео прохождения теста
 <p align="center">
-  <img title="Selenoid Video" src="media/screens/Video.gif">
+  <img title="Selenoid Video" src="media/video/ТестПустотыКорзины.gif">
+</p>
+<p align="center">
+  <img title="Selenoid Video" src="media/video/ТестПереходаКДоставке.gif">
 </p>
