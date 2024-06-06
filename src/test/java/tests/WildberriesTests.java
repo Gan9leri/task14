@@ -4,18 +4,14 @@ import org.junit.jupiter.api.Tag;
 import pages.WildberriesPage;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byTagAndText;
+import static com.codeborne.selenide.Selenide.$;
 
+@Tag("form")
+@DisplayName("Тесты для формы Wildberries")
 public class WildberriesTests extends TestBase{
     WildberriesPage steps = new WildberriesPage();
-
-    @DisplayName("Тест перехода на страницу продавцов")
-    @Tag("sellerTest")
-    @Test
-    void sellerPageTest(){
-        steps.openPage()
-                .sellerPage()
-                .CheckNewInsetUrl("https://seller.wildberries.ru/about-portal/ru/");
-    }
 
     @DisplayName("Тест перехода на страницу трудоустройства")
     @Tag("workPageTest")
@@ -36,6 +32,14 @@ public class WildberriesTests extends TestBase{
                 .checkUrl("https://www.wildberries.ru/");
 
     }
+    @DisplayName("Тест пустоты корзины")
+    @Tag("emptyBasketTest")
+    @Test
+    void emptyBasketTest(){
+        steps.openPage()
+                .goToBasket()
+                .isEmptyBusket();
+    }
 
     @DisplayName("Тест перехода к доставке")
     @Tag("addresPageTest")
@@ -53,6 +57,5 @@ public class WildberriesTests extends TestBase{
         steps.openPage()
                 .loginButtonClick()
                 .checkLoginPage("Войти или создать профиль");
-
     }
 }
