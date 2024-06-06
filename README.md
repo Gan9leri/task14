@@ -64,10 +64,9 @@ gradle clean test WildberriesTests -Dselenoid_url="selenoid.autotests.cloud/wd/h
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logo/Allure_Report.svg"> Пример Allure-отчета
-### Overview
 
 <p align="center">
-<img title="Allure Overview" src="media/screens/allure.png">
+<img title="Allure" src="media/screens/allure.PNG">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logo/AllureTestOps.svg"> Интеграция с Allure TestOps
