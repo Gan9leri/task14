@@ -79,7 +79,7 @@ gradle clean test WildberriesTests -Dselenoid_url="selenoid.autotests.cloud/wd/h
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом о прогоне тестов.
 
 <p align="center">
-<img width="70%" title="Telegram Notifications" src="media/screens/Bot.png">
+<img width="70%" title="Telegram Notifications" src="media/screen/telegram.png">
 </p>
 
 ### <img width="4%" style="vertical-align:middle" title="Selenoid" src="media/logo/Selenoid.svg"> Видео примера запуска тестов в Selenoid
