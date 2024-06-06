@@ -2,6 +2,7 @@
 ## :scroll: Содержание:
 
 - [Используемый стек](#computer-используемый-стек)
+- [Описание автотестов](#computer)
 - [Запуск автотестов](#arrow_forward-запуск-автотестов)
 - [Сборка в Jenkins](#-сборка-в-jenkins)
 - [Пример Allure-отчета](#-пример-allure-отчета)
@@ -29,6 +30,13 @@
 При прогоне тестов для запуска браузеров используется [Selenoid](https://aerokube.com/selenoid/).
 Для удаленного запуска реализована джоба в <code>Jenkins</code> с формированием Allure-отчета и отправкой результатов в <code>Telegram</code> при помощи бота.
 
+## :computer: Описание тестов:
+- ✓ *workPageTest() - Тест перехода на страницу трудоустройства*
+- ✓ *basketTest() - Тест перехода в корзину и обратно* 
+- ✓ *emptyBasketTest() - Тест пустоты корзины*
+- ✓ *addresPageTest() - Тест перехода к доставке*
+- ✓ *loginPageTest() - Тест перехода на страницу авторизации*
+ 
 Содержание Allure-отчета:
 * Шаги теста;
 * Скриншот страницы на последнем шаге;
@@ -40,7 +48,7 @@
 
 ### Запуск тестов из терминала
 ```
-gradle clean test -Dselenoid_url="selenoid.autotests.cloud/wd/hub" -Dbrowser_size="1920х1080" -Dbrowser="chrome" -Dbrowser_version="100.0"
+gradle clean test WildberriesTests -Dselenoid_url="selenoid.autotests.cloud/wd/hub" -Dbrowser_size="1920х1080" -Dbrowser="chrome" -Dbrowser_version="100.0"
 ```
 При выполнении данной команды в терминале IDE тесты запустятся удаленно в <code>Selenoid</code>. 
 
