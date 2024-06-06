@@ -10,9 +10,9 @@ import static com.codeborne.selenide.WebDriverConditions.currentFrameUrl;
 public class WildberriesPage {
 
     private final SelenideElement
-            sellerButton = $(byTagAndText("a", "Продавайте на Wildberries")),
             workButton = $(byTagAndText("a", "Работа в Wildberries")),
             basket = $(".j-item-basket"),
+            emptyBasketTitle = $(".basket-empty__title"),
             mainPageButton = $(byTagAndText("a", "Перейти на главную")),
             addresButton = $(".navbar-pc__icon--address"),
             deliveryBannerTitle =  $(".delivery-banner-title"),
@@ -23,19 +23,6 @@ public class WildberriesPage {
     @Step("Открытие страницы")
     public WildberriesPage openPage(){
         open("");
-        return this;
-    }
-
-    @Step("Переход на страницу продавцов")
-    public WildberriesPage sellerPage(){
-        sellerButton.click();
-        return this;
-    }
-
-    @Step("Проверка url")
-    public WildberriesPage CheckNewInsetUrl(String value){
-        webdriver().driver().switchTo().window(1);
-        webdriver().shouldHave(currentFrameUrl(value));
         return this;
     }
 
@@ -54,6 +41,12 @@ public class WildberriesPage {
     @Step("Переход в корзину")
     public WildberriesPage goToBasket(){
         basket.click();
+        return this;
+    }
+
+    @Step("Проверка, что в корзине пусто")
+    public WildberriesPage isEmptyBusket(){
+        emptyBasketTitle.shouldHave(text("В корзине пока пусто"));
         return this;
     }
 
