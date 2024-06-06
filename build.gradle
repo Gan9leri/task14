@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'io.qameta.allure' version '2.11.2'
 }
+
 allure {
     report {
         version.set("2.27.0")
@@ -16,6 +17,7 @@ allure {
         }
     }
 }
+
 repositories {
     mavenCentral()
 }
@@ -30,7 +32,6 @@ dependencies {
     )
 }
 
-
 compileJava {
     options.encoding = 'UTF-8'
 }
@@ -38,6 +39,23 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-test{
+/*test{
     useJUnitPlatform()
+}*/
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task WildberriesTests(type: Test) {
+    useJUnitPlatform {
+        includeTags("form")
+    }
 }
