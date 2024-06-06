@@ -74,7 +74,7 @@ gradle clean test WildberriesTests -Dselenoid_url="selenoid.autotests.cloud/wd/h
 <img title="graphs" src="media/screen/graphs.PNG">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
+### <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram
 
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом о прогоне тестов.
 
