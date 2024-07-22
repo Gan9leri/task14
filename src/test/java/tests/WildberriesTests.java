@@ -1,4 +1,5 @@
 package tests;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import pages.WildberriesPage;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 @Tag("form")
 @DisplayName("Тесты для формы Wildberries")
+@Feature("Issues")
 public class WildberriesTests extends TestBase{
     WildberriesPage steps = new WildberriesPage();
 
